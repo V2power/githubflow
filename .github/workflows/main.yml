@@ -25,5 +25,5 @@ jobs:
         with:
           node-version: '25.9.0'
       - name: "Verificação da versão do NodeJS"
-        run: node --versions
+        run: node --version
           
