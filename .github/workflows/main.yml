@@ -20,3 +20,10 @@ jobs:
     steps:
       - name: "Verificação da versão do NodeJS atual"
         run: node --version
+      - name: "Definição da nova versão do NodeJS"
+        uses: actions/setup-node@v6
+        with:
+          node-version: '25.9.0'
+      - name: "Verificação da versão do NodeJS"
+        run: node --versions
+          
