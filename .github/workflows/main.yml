@@ -15,6 +15,7 @@ jobs:
           echo "Você criou o seu primeiro workflow."
           echo "Parabéns"
   segundo-job:
+    needs: [primeiro-job]
     name: "Instalação do ambiente NodeJS"
     runs-on: ubuntu-latest
     steps:
