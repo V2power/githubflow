@@ -1,14 +1,11 @@
 name: Funções GitHub Actions
 on:
-  workflow_dispatch:
-    inputs:
-      valor:
-        default: "github"
-        type: string
+  push:
 jobs:
-  teste:
-    permissions: write-all
+  only-main:
+    if: ${{ github.ref == 'refs/heads/hotfix' }}
+    name: This job only execute on branch main
     runs-on: ubuntu-latest
     steps:
-      - name: Função "Contains"
-        run: echo ${{ contains(inputs.valor, 'github') }}
+      - name: Executing on main
+        run: echo "Executing command on main"
