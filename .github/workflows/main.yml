@@ -1,30 +1,14 @@
-name: primeira-pipeline
+name: Funções GitHub Actions
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
+    inputs:
+      valor:
+        default: "github"
+        type: string
 jobs:
-  primeiro-job:
-    name: "Meu primeiro job"
+  teste:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - name: "Minha primeira action"
-        run: echo "Hello World!"
-      - name: "Segunda ação"
-        run: |
-          echo "Você criou o seu primeiro workflow."
-          echo "Parabéns"
-  segundo-job:
-    needs: [primeiro-job]
-    name: "Instalação do ambiente NodeJS"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Verificação da versão do NodeJS atual"
-        run: node --version
-      - name: "Definição da nova versão do NodeJS"
-        uses: actions/setup-node@v6
-        with:
-          node-version: '25.9.0'
-      - name: "Verificação da versão do NodeJS"
-        run: node --version
-          
+      - name: Função "Contains"
+        run: echo ${{ contains(inputs.valor, 'github') }}
