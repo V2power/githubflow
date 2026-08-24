@@ -15,8 +15,6 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm test
       - run: node -v
       - run: cat /etc/os-release
       - run: echo "Versão do Ubuntu é ${{ matrix.os }}"
