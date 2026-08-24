@@ -1,0 +1,22 @@
+name: Matrix Github Actions
+on:
+  workflow_dispatch
+jobs:
+  node-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-22.04]
+        node-version: [14, 16]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm test
+      - run: node -v
+      - run: cat /etc/os-release
+      - run: echo "Versão do Ubuntu é ${{ matrix.os }}"
