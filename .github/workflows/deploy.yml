@@ -1,0 +1,12 @@
+name: CD
+on:
+  workflow_call:
+    inputs:
+      env:
+        type: string
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy no ambiente
+        run: echo "Executando o deploy no ambiente de desenvolvimento"
