@@ -9,8 +9,8 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy no ambiente
-        run: echo "Executando o deploy no ambiente de desenvolvimento"
+      - name: Iniciando CI
+        run: echo "Iniciando CI"
   CD:
     needs: [CI]
     uses: ./.github/workflows/deploy.yml
