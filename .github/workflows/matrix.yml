@@ -1,13 +1,20 @@
 name: Matrix Github Actions
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      version1:
+        required: true
+        type: number
+      version2:
+        required: true
+        type: number
 jobs:
   node-test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-22.04]
-        node-version: [14, 16]
+        node-version: ['${{ inputs.version1 }}', '${{ inputs.version2 }}']
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
