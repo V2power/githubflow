@@ -7,4 +7,4 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Executando ambiente"
+      - run: echo "Executando ambiente ${{ github.event.client_payload.ambiente }}"
