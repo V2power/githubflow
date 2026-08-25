@@ -1,5 +1,10 @@
 name: Repository Dispatch
 on:
+  workflow_call:
+    inputs:
+      ambiente:
+        type: string
+        required: true
   repository_dispatch:
     types:
       - deploy-remoto
@@ -7,4 +12,4 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Executando ambiente ${{ github.event.client_payload.ambiente }}"
+      - run: echo "Executando ambiente ${{ inputs.ambiente || github.event.client_payload.ambiente }}"
